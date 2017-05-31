@@ -7,9 +7,9 @@ echo "setting default subscription"
 az account set --subscription "$subscriptionId"
 
 echo "creating resource group deployment"
-    az group deployment create \
+az group deployment create \
     --resource-group "$resourceGroup" \
     --mode "$mode" \
     --name "$name" \
-    --parameters "/parameters.json" \
+    --parameters "@/parameters.json" \
     --template-file "/template.json"
