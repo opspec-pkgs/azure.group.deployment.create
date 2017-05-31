@@ -23,5 +23,5 @@ opctl run github.com/opspec-pkgs/azure.group.deployment.create#VERSION
 run:
   op:
     pkg: { ref: github.com/opspec-pkgs/azure.group.deployment.create#VERSION }
-    inputs: { subscriptionId, username, password, mode, name, parameters, template }
+    inputs: { subscriptionId, username, password, resourceGroup, mode, name, parameters, template }
 ```
