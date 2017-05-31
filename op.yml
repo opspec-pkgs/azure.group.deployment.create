@@ -18,6 +18,7 @@ inputs:
     string:
       constraints: { enum: [ Incremental, Complete ] }
       description: mode of deployment; either incremental (only add resources to resource group) or complete (remove extra resources from resource group)
+      default: Incremental
   name:
     string:
       constraints: { minLength: 1 }
