@@ -1,0 +1,36 @@
+name: azure.group.deployment.create
+description: creates an azure resource group (if it doesn't already exist)
+inputs:
+  subscriptionId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of azure subscription
+  username:
+    string:
+      constraints: { format: email }
+      description: email address of azure account
+  password:
+    string:
+      constraints: { minLength: 1 }
+      description: password of azure account
+      isSecret: true
+  mode:
+    string:
+      constraints: { enum: [ Incremental, Complete ] }
+      description: mode of deployment; either incremental (only add resources to resource group) or complete (remove extra resources from resource group)
+  name:
+    string:
+      constraints: { minLength: 1 }
+      description: name of the deployment
+  parameters:
+    file:
+      description: parameters for the deployment
+  template:
+    file:
+      description: template for the deployment
+run:
+  container:
+    image: { ref: 'azuresdk/azure-cli-python' }
+    cmd: [ /cmd.sh ]
+    files: { /cmd.sh, /parameters.json: parameters, /template.json: template }
+    envVars: { subscriptionId, username, password, mode, name }
