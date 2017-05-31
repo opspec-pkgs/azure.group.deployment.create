@@ -14,6 +14,10 @@ inputs:
       constraints: { minLength: 1 }
       description: password of azure account
       isSecret: true
+  resourceGroup:
+    string:
+      constraints: { minLength: 1 }
+      description: Name of resource group
   mode:
     string:
       constraints: { enum: [ Incremental, Complete ] }
@@ -34,4 +38,4 @@ run:
     image: { ref: 'azuresdk/azure-cli-python' }
     cmd: [ /cmd.sh ]
     files: { /cmd.sh, /parameters.json: parameters, /template.json: template }
-    envVars: { subscriptionId, username, password, mode, name }
+    envVars: { subscriptionId, username, password, resourceGroup, mode, name }
