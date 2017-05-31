@@ -8,6 +8,7 @@ az account set --subscription "$subscriptionId"
 
 echo "creating resource group deployment"
     az group deployment create \
+    --resource-group "$resourceGroup" \
     --mode "$mode" \
     --name "$name" \
     --parameters "/parameters.json" \
