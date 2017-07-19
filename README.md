@@ -20,22 +20,21 @@ opctl run github.com/opspec-pkgs/azure.group.deployment.create#VERSION
 ## compose
 
 ```yaml
-run:
-  op:
-    pkg: { ref: github.com/opspec-pkgs/azure.group.deployment.create#VERSION }
-    inputs:
-      subscriptionId:
-      loginId:
-      loginSecret:
-      resourceGroup:
-      name:
-      parameters:
-      template:
-      # begin optional args
-      loginTenantId:
-      loginType:
-      mode:
-      # end optional args
+op:
+  pkg: { ref: github.com/opspec-pkgs/azure.group.deployment.create#VERSION }
+  inputs:
+    subscriptionId:
+    loginId:
+    loginSecret:
+    resourceGroup:
+    name:
+    parameters:
+    template:
+    # begin optional args
+    loginTenantId:
+    loginType:
+    mode:
+    # end optional args
 ```
 
 # Support
