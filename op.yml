@@ -43,6 +43,7 @@ inputs:
       constraints: { enum: [ Incremental, Complete ] }
       description: mode of deployment; either incremental (only add resources to resource group) or complete (remove extra resources from resource group)
       default: Incremental
+version: 1.0.0
 run:
   container:
     image: { ref: 'azuresdk/azure-cli-python:0.2.10' }
