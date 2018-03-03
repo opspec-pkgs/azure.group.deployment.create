@@ -48,7 +48,10 @@ run:
   container:
     image: { ref: 'azuresdk/azure-cli-python:0.2.10' }
     cmd: [ /cmd.sh ]
-    files: { /cmd.sh, /parameters.json: parameters, /template.json: template }
+    files:
+      /cmd.sh:
+      /parameters.json: $(parameters)
+      /template.json: $(template)
     envVars:
       subscriptionId:
       loginId:
